@@ -1,0 +1,1 @@
+//data bse config setup
