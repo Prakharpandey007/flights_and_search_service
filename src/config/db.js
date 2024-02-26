@@ -1,1 +1,1 @@
-//data bse config setup
+//data base config setup
