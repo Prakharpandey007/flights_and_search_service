@@ -51,7 +51,7 @@ catch(error){
 async getCity(cityId){
     try{
 const city=await City.findByPk(cityId);
-return City;
+return city;
     } catch(error){
         console.log("something went wrong in repositoryt");
 throw{error};
