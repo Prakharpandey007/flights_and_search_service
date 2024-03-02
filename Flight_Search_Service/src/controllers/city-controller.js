@@ -57,7 +57,9 @@ const destroy= async (req,res)=>{
 const get= async (req,res)=>{
     
     try {
+        console.log("insiode the controller before");
         const response=await cityService.getCity(req.params.id);
+        console.log("insiode the controller after");
         return res.status(200).json({
             data:response,
             success:true,

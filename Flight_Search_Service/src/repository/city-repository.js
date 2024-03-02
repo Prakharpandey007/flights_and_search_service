@@ -50,10 +50,12 @@ catch(error){
 
 async getCity(cityId){
     try{
+        console.log("inside repo layer")
 const city=await City.findByPk(cityId);
 return city;
     } catch(error){
-        console.log("something went wrong in repositoryt");
+
+        console.log("something went wrong in repository layer", error);
 throw{error};
     }
 
