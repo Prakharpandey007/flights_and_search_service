@@ -35,11 +35,19 @@ async deleteCity(cityId){
 }
 async updateCity(cityId,data){
 try{
-const city=await City.update(data,{
-    where:{
-        id:cityId
-    }
-});
+//the below approach also works but will not return updated object 
+//if u r using pgsql then returning true can be used else not.
+
+// const city=await City.update(data,{
+//     where:{
+//         id:cityId
+//     }
+    
+// });
+//for getting updating data in mysql we use the below approch
+const city=await City.findByPk(cityId);
+city.name=data.name;
+await city.save();
 return city;
 }
 catch(error){
