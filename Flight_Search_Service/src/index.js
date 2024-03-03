@@ -1,13 +1,14 @@
 const express=require("express");
 const bodyParser=require('body-parser');
 
-const {City}=require('./models/index');
+const {City,Airport}=require('./models/index');
 
 
 const {PORT}=require('./config/serverconfig');
 
 const ApiRoutes=require('./routes/index');
 
+const db=require('./models/index');
 
 
 const setupAndStartServer=async()=>{
@@ -22,10 +23,30 @@ app.use('/api',ApiRoutes);
 
 app.listen(PORT,async()=>{
     console.log(`server started at ${PORT}`);
+if(process.env.SYNC_DB){
+    db.sequelize.sync({alter:true});
+}
 
-})
-
-};
 
 
+
+
+// const city=await City.findOne({
+//     where:{
+//         id:10
+//     }
+// });
+// const airports=await city.getAirports();
+// // const newAirport=await Airport.findOne({
+// //     where:{
+// //         id:5
+// //     }
+// // });
+// // await city.addAirport(newAirport);
+// console.log(city,airports);
+
+
+});
+
+}
 setupAndStartServer();
