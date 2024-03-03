@@ -51,19 +51,14 @@ try {
     throw{error};
 }
     }
-async getAllCities(){
+async getAllCities(filter){
     try {
-        const cities=await this.cityRepository.getAllCities();
+        const cities=await this.cityRepository.getAllCities({name:filter.name});
         return cities;
     } catch (error) {
-        console.log(error);
+        console.log("something went wrong in service layer");
+        throw{error};
         
-        return res.status(500).json({
-            data:{},
-            success:false,
-            message:'not able to update the city',
-            err:error
-        });
     }
 }
 
