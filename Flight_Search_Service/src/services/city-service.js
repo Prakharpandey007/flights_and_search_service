@@ -51,6 +51,22 @@ try {
     throw{error};
 }
     }
+async getAllCities(){
+    try {
+        const cities=await this.cityRepository.getAllCities();
+        return cities;
+    } catch (error) {
+        console.log(error);
+        
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'not able to update the city',
+            err:error
+        });
+    }
+}
+
 
 }
 module.exports=CityService;
