@@ -69,7 +69,19 @@ return filter;
             throw{error};
         }
     }
-
+    async updateFlights(flightId,data){
+        try {
+          await Flights.update(data, {
+            where: {
+              id: flightId,
+            },
+          });
+          return true;
+        } catch (error) {
+          console.log("something went wrong in service layer");
+          throw { error };
+          }
+      }
 }
 
 

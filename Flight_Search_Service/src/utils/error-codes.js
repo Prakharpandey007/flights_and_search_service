@@ -4,7 +4,7 @@ UNAUTHORISED:401,
 NOT_FOUND:404
 });
 
-const ServerErrorCodes=object.freeze({
+const ServerErrorCodes=Object.freeze({
 INTERNAL_SERVICE_ERROR:500,
 NOT_IMPLEMENTED:501
 
